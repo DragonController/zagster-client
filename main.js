@@ -9,7 +9,7 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
 
         var a = Math.pow(Math.sin((end_lat - start_lat) * Math.PI / 360), 2) + Math.cos(start_lat * Math.PI / 180) * Math.cos(end_lat * Math.PI / 180) * Math.pow(Math.sin((end_lon - start_lon) * Math.PI / 360), 2);
         if (start_lat != null && start_lon != null && end_lat != null && end_lon != null) {
-            total_distance += Math.abs(12742e3 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+            total_distance += 12742e3 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             length++;
         }
     }
