@@ -1,5 +1,6 @@
 $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', function (response) {
     var total_distance = 0;
+    var average_distance = 0;
     var length = 0;
     for (var i = 0; i < response.length; i++) {
         start_lat = Object.values(response[i])[1];
@@ -9,11 +10,13 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
 
         var a = Math.pow(Math.sin((end_lat - start_lat) * Math.PI / 360), 2) + Math.cos(start_lat * Math.PI / 180) * Math.cos(end_lat * Math.PI / 180) * Math.pow(Math.sin((end_lon - start_lon) * Math.PI / 360), 2);
         if (start_lat != null && start_lon != null && end_lat != null && end_lon != null) {
-            total_distance += 12742e3 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            total_distance += 12756274 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             length++;
         }
     }
-    var average_distance = total_distance / length;
+    if (length > 0) {
+        average_distance = total_distance / length;
+    }
     document.getElementById("average_distance").innerHTML = "Average Distance: " + average_distance.toFixed(3) + " meters";
     if (average_distance == 1) {
         document.getElementById("average_distance").innerHTML = "Average Distance: 1 meter";
