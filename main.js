@@ -1,4 +1,5 @@
 $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', function (response) {
+    console.log(response)
     var total_distance = 0;
     var average_distance = 0;
     var length = 0;
@@ -16,8 +17,9 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
     if (length > 0) {
         average_distance = total_distance / length;
     }
-    document.getElementById("average_distance").innerHTML = "Average Distance: " + average_distance.toFixed(3) + " meters";
     if (average_distance == 1) {
         document.getElementById("average_distance").innerHTML = "Average Distance: 1 meter";
+    } else {
+        document.getElementById("average_distance").innerHTML = "Average Distance: " + average_distance.toFixed(3) + " meters";
     }
 });
