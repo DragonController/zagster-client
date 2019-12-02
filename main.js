@@ -100,7 +100,7 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
     arrays.sort((a, b) => a[1] - b[1]);
     for (var i = 0; i < userIDs.length; i++) {
         userIDs[i] = arrays[i][0];
-        speeds[i] = arrays[i][1];
+        speeds[i] = arrays[i][1].toFixed(3);
     }
     new Chart(document.getElementById('speeds_chart'), {
         type: 'bar',
