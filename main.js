@@ -107,6 +107,7 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
         data: {
             labels: userIDs,
             datasets: [{
+                label: "Average Speed (mps)",
                 data: speeds
             }]
         },
@@ -125,7 +126,7 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Speeds (mps)',
+                        labelString: 'Average Speeds (mps)',
                         fontSize: 15
                     },
                     ticks: {
