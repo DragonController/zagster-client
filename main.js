@@ -107,7 +107,8 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
         data: {
             labels: userIDs,
             datasets: [{
-                data: speeds
+                data: speeds,
+                backgroundColor: "rgb(255, 0, 255)"
             }]
         },
         options: {
@@ -135,7 +136,7 @@ $.get('https://zagster-service.herokuapp.com/rides/locations_and_times', functio
             },
             tooltips: {
                 callbacks: {
-                    label: function(tooltipItem, data) {
+                    label: function (tooltipItem, data) {
                         return tooltipItem.yLabel + " mps";
                     }
                 }
